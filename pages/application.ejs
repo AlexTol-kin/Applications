@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <title><%= title %></title>
+  </head>
+
+  <body>
+    <% if (created) {%>
+    <div class="alert alert-success">Заявка была отправлена!</div>
+    <% } %> <% if (error) {%>
+    <div class="alert alert-danger">Something went wrong!</div>
+    <% } %>
+
+    <section class="h-100">
+      <div class="container py-5 h-100">
+        <% if (error) {%>
+        <div class="alert alert-danger"><%= error %></div>
+        <% } %>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col">
+            <div class="card card-registration my-4">
+              <form
+                method="POST"
+                action="/application"
+                class="card-body p-md-5 text-black"
+              >
+                <h3 class="mb-5 text-uppercase text-center">Запись к врачу</h3>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="text"
+                    name="patient"
+                    id="patient"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label" for="patient">ФИО</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="phone"
+                    name="phone"
+                    id="phone"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label" for="phone">Номер телефона</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    class="form-control form-control-lg"
+                  />
+                  <label class="form-label" for="title"
+                    >Опишите вашу проблему</label
+                  >
+                </div>
+
+                <div class="d-flex justify-content-center pt-3">
+                  <button type="submit" class="btn btn-warning btn-lg ms-2">
+                    Отправить
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
